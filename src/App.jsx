@@ -49,7 +49,7 @@ function App() {
 
   <div className="hero-right">
     <img
-      src="/amir.jpg"
+      src="/amir.png"
       alt="Amirtha"
       className="profile-image"
     />
