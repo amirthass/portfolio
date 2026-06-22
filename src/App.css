@@ -187,7 +187,6 @@ body {
   color: #cbd5e1;
 }
 
-/* KEY FIX: bio text bright white */
 .pf-bio {
   font-size: 15px;
   line-height: 1.85;
@@ -367,7 +366,6 @@ body {
   transform: translateY(-3px);
 }
 
-/* About — bright readable text */
 .pf-about-text {
   font-size: 15px;
   line-height: 1.9;
@@ -441,7 +439,6 @@ body {
   flex-shrink: 0;
 }
 
-/* Project title — bright white */
 .pf-proj-title {
   font-size: 17px;
   font-weight: 700;
@@ -475,7 +472,6 @@ body {
   transform: translateY(-1px);
 }
 
-/* Project description — clearly readable */
 .pf-proj-desc {
   font-size: 14px;
   line-height: 1.85;
@@ -520,7 +516,6 @@ body {
   flex-shrink: 0;
 }
 
-/* Education text — bright and readable */
 .pf-edu-degree {
   font-size: 16px;
   font-weight: 700;
@@ -651,25 +646,76 @@ body {
 
 /* ── Animations ── */
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(22px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes pulse {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.35; }
+  50%       { opacity: 0.35; }
 }
 
 @keyframes spin {
   from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  to   { transform: rotate(360deg); }
 }
+
+/* ── Scroll Reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Glow border flash on glass cards when revealed */
+@keyframes glowFlash {
+  0%   { border-color: rgba(56, 189, 248, 0.08); box-shadow: none; }
+  40%  { border-color: rgba(56, 189, 248, 0.7);  box-shadow: 0 0 22px rgba(56, 189, 248, 0.35); }
+  100% { border-color: rgba(56, 189, 248, 0.28); box-shadow: 0 0 8px rgba(56, 189, 248, 0.1); }
+}
+
+.reveal.visible .glass {
+  animation: glowFlash 0.9s ease 0.3s both;
+}
+
+/* Stagger child items */
+.reveal .pf-skill,
+.reveal .pf-proj,
+.reveal .pf-profile-link {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.reveal.visible .pf-skill,
+.reveal.visible .pf-proj,
+.reveal.visible .pf-profile-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal .pf-skill:nth-child(1)  { transition-delay: 0.10s; }
+.reveal .pf-skill:nth-child(2)  { transition-delay: 0.18s; }
+.reveal .pf-skill:nth-child(3)  { transition-delay: 0.26s; }
+.reveal .pf-skill:nth-child(4)  { transition-delay: 0.34s; }
+.reveal .pf-skill:nth-child(5)  { transition-delay: 0.42s; }
+.reveal .pf-skill:nth-child(6)  { transition-delay: 0.50s; }
+.reveal .pf-skill:nth-child(7)  { transition-delay: 0.58s; }
+.reveal .pf-skill:nth-child(8)  { transition-delay: 0.66s; }
+.reveal .pf-skill:nth-child(9)  { transition-delay: 0.74s; }
+.reveal .pf-skill:nth-child(10) { transition-delay: 0.82s; }
+
+.reveal .pf-proj:nth-child(1)         { transition-delay: 0.15s; }
+.reveal .pf-proj:nth-child(2)         { transition-delay: 0.30s; }
+
+.reveal .pf-profile-link:nth-child(1) { transition-delay: 0.15s; }
+.reveal .pf-profile-link:nth-child(2) { transition-delay: 0.28s; }
+.reveal .pf-profile-link:nth-child(3) { transition-delay: 0.41s; }
 
 /* ── Mobile ── */
 @media (max-width: 640px) {
@@ -681,43 +727,27 @@ body {
     gap: 2.5rem;
   }
 
-  .pf-bio {
-    margin: 0 auto 2rem;
-  }
-
-  .pf-btns {
-    justify-content: center;
-  }
-
-  .pf-stats {
-    justify-content: center;
-  }
+  .pf-bio { margin: 0 auto 2rem; }
+  .pf-btns { justify-content: center; }
+  .pf-stats { justify-content: center; }
 
   .pf-name {
     font-size: 36px;
     letter-spacing: -1px;
   }
 
-  .pf-role {
-    font-size: 17px;
-  }
+  .pf-role { font-size: 17px; }
 
   .pf-avatar-wrap {
     width: 170px;
     height: 170px;
   }
 
-  .pf-avatar-fallback {
-    font-size: 42px;
-  }
+  .pf-avatar-fallback { font-size: 42px; }
 
-  .pf-profiles {
-    gap: 8px;
-  }
+  .pf-profiles { gap: 8px; }
 
-  .pf-profile-link {
-    padding: 1.25rem 0.5rem;
-  }
+  .pf-profile-link { padding: 1.25rem 0.5rem; }
 
   .pf-nav-links button {
     padding: 6px 10px;

@@ -109,3 +109,53 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+/* ── Scroll Reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Glow border flash on cards */
+@keyframes glowFlash {
+  0%   { border-color: rgba(56, 189, 248, 0.08); box-shadow: none; }
+  40%  { border-color: rgba(56, 189, 248, 0.7);  box-shadow: 0 0 22px rgba(56, 189, 248, 0.35); }
+  100% { border-color: rgba(56, 189, 248, 0.28); box-shadow: 0 0 8px rgba(56, 189, 248, 0.1); }
+}
+
+.reveal.visible .glass {
+  animation: glowFlash 0.9s ease 0.3s both;
+}
+
+/* Stagger child items (skills, project cards) */
+.reveal .pf-skill,
+.reveal .pf-proj,
+.reveal .pf-profile-link {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.reveal.visible .pf-skill,
+.reveal.visible .pf-proj,
+.reveal.visible .pf-profile-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delay for each child */
+.reveal .pf-skill:nth-child(1),  .reveal .pf-proj:nth-child(1),  .reveal .pf-profile-link:nth-child(1)  { transition-delay: 0.15s; }
+.reveal .pf-skill:nth-child(2),  .reveal .pf-proj:nth-child(2),  .reveal .pf-profile-link:nth-child(2)  { transition-delay: 0.25s; }
+.reveal .pf-skill:nth-child(3),  .reveal .pf-proj:nth-child(3),  .reveal .pf-profile-link:nth-child(3)  { transition-delay: 0.35s; }
+.reveal .pf-skill:nth-child(4),  { transition-delay: 0.42s; }
+.reveal .pf-skill:nth-child(5),  { transition-delay: 0.49s; }
+.reveal .pf-skill:nth-child(6),  { transition-delay: 0.56s; }
+.reveal .pf-skill:nth-child(7),  { transition-delay: 0.63s; }
+.reveal .pf-skill:nth-child(8),  { transition-delay: 0.70s; }
+.reveal .pf-skill:nth-child(9),  { transition-delay: 0.77s; }
+.reveal .pf-skill:nth-child(10), { transition-delay: 0.84s; }

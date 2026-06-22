@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./App.css";
 
 const skills = {
@@ -34,7 +35,7 @@ const profiles = [
   {
     emoji: "💻",
     label: "LeetCode",
-    sub: "AmirthaSS",
+    sub: "100+ problems solved",
     href: "https://leetcode.com/u/AmirthaSS/",
   },
   {
@@ -48,6 +49,24 @@ const profiles = [
 function App() {
   const scrollTo = (id) =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+
+  // Scroll reveal — triggers .visible when section enters viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="pf-root">
@@ -91,28 +110,13 @@ function App() {
             </p>
 
             <div className="pf-btns">
-              <a
-                href="https://github.com/amirthass"
-                target="_blank"
-                rel="noreferrer"
-                className="pf-btn primary"
-              >
+              <a href="https://github.com/amirthass" target="_blank" rel="noreferrer" className="pf-btn primary">
                 GitHub
               </a>
-              <a
-                href="https://www.linkedin.com/in/amirtha-sathies-818199329/"
-                target="_blank"
-                rel="noreferrer"
-                className="pf-btn ghost"
-              >
+              <a href="https://www.linkedin.com/in/amirtha-sathies-818199329/" target="_blank" rel="noreferrer" className="pf-btn ghost">
                 LinkedIn
               </a>
-              <a
-                href="https://leetcode.com/u/AmirthaSS/"
-                target="_blank"
-                rel="noreferrer"
-                className="pf-btn ghost"
-              >
+              <a href="https://leetcode.com/u/AmirthaSS/" target="_blank" rel="noreferrer" className="pf-btn ghost">
                 LeetCode
               </a>
             </div>
@@ -127,8 +131,8 @@ function App() {
                 <span className="pf-stat-label">Projects</span>
               </div>
               <div className="pf-stat">
-                <span className="pf-stat-num">10+</span>
-                <span className="pf-stat-label">Skills</span>
+                <span className="pf-stat-num">100+</span>
+                <span className="pf-stat-label">LeetCode</span>
               </div>
             </div>
           </div>
@@ -153,45 +157,43 @@ function App() {
         </header>
 
         {/* About */}
-        <section className="pf-section" id="about">
+        <section className="pf-section reveal" id="about">
           <div className="pf-section-header">
             <span className="pf-section-label">About me</span>
             <div className="pf-section-line" />
           </div>
           <div className="glass">
             <p className="pf-about-text">
-              I'm a Computer Science and Design student at Kongu Engineering
-              College. I enjoy building web applications, learning new
-              technologies, and solving real-world coding challenges. Currently
-              strengthening my skills in MERN Stack development and Data
-              Structures & Algorithms — always looking to build things that
-              actually matter.
+              I'm a 3rd-year Computer Science and Design student at Kongu
+              Engineering College, graduating in 2028. I enjoy building modern
+              web applications, exploring new technologies, and solving
+              real-world problems through code. Currently deepening my expertise
+              in MERN Stack development and Data Structures & Algorithms, with
+              100+ LeetCode problems solved. I'm open to opportunities across
+              full stack, frontend, and backend roles — wherever I can
+              contribute, learn, and grow.
             </p>
           </div>
         </section>
 
         {/* Skills */}
-        <section className="pf-section">
+        <section className="pf-section reveal">
           <div className="pf-section-header">
             <span className="pf-section-label">Skills</span>
             <div className="pf-section-line" />
           </div>
           <div className="pf-skills-grid">
             {skills.core.map((s) => (
-              <span key={s} className="pf-skill core">
-                {s}
-              </span>
+              <span key={s} className="pf-skill core">{s}</span>
             ))}
             {skills.supporting.map((s) => (
-              <span key={s} className="pf-skill">
-                {s}
-              </span>
+              <span key={s} className="pf-skill">{s}</span>
             ))}
           </div>
         </section>
 
         {/* Projects */}
-        <section className="pf-section" id="projects">
+        <section className="pf-section reveal" id="projects">
           <div className="pf-section-header">
             <span className="pf-section-label">Projects</span>
             <div className="pf-section-line" />
@@ -204,21 +206,14 @@ function App() {
                   <div className="pf-proj-title">{p.title}</div>
                   <div className="pf-proj-tech">{p.tech}</div>
                 </div>
-                <a
-                  href={p.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="pf-proj-link"
-                >
+                <a href={p.github} target="_blank" rel="noreferrer" className="pf-proj-link">
                   View →
                 </a>
               </div>
               <p className="pf-proj-desc">{p.desc}</p>
               <div className="pf-proj-tags">
                 {p.tags.map((t) => (
-                  <span key={t} className="pf-tag">
-                    {t}
-                  </span>
+                  <span key={t} className="pf-tag">{t}</span>
                 ))}
               </div>
             </div>
@@ -226,7 +221,7 @@ function App() {
         </section>
 
         {/* Education */}
-        <section className="pf-section">
+        <section className="pf-section reveal">
           <div className="pf-section-header">
             <span className="pf-section-label">Education</span>
             <div className="pf-section-line" />
@@ -235,27 +230,21 @@ function App() {
             <div className="pf-edu-icon">🎓</div>
             <div>
               <div className="pf-edu-degree">B.E Computer Science and Design</div>
-              <div className="pf-edu-college">Kongu Engineering College</div>
+              <div className="pf-edu-college">Kongu Engineering College · Expected 2028</div>
               <div className="pf-edu-gpa">★ CGPA: 8.19</div>
             </div>
           </div>
         </section>
 
         {/* Coding Profiles */}
-        <section className="pf-section">
+        <section className="pf-section reveal">
           <div className="pf-section-header">
             <span className="pf-section-label">Coding profiles</span>
             <div className="pf-section-line" />
           </div>
           <div className="pf-profiles">
             {profiles.map((p) => (
-              <a
-                key={p.label}
-                href={p.href}
-                target="_blank"
-                rel="noreferrer"
-                className="pf-profile-link"
-              >
+              <a key={p.label} href={p.href} target="_blank" rel="noreferrer" className="pf-profile-link">
                 <span className="pf-profile-emoji">{p.emoji}</span>
                 <span className="pf-profile-name">{p.label}</span>
                 <span className="pf-profile-sub">{p.sub}</span>
@@ -265,7 +254,7 @@ function App() {
         </section>
 
         {/* Contact */}
-        <section className="pf-section" id="contact">
+        <section className="pf-section reveal" id="contact">
           <div className="pf-section-header">
             <span className="pf-section-label">Contact</span>
             <div className="pf-section-line" />
@@ -286,7 +275,7 @@ function App() {
 
         <footer className="pf-footer">
           Built with passion by{" "}
-          <span className="pf-footer-name">Amirtha S S</span> · 2026
+          <span className="pf-footer-name">Amirtha S S</span> · {new Date().getFullYear()}
         </footer>
       </div>
     </div>
