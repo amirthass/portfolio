@@ -297,3 +297,164 @@ body {
     grid-template-columns: 1fr;
   }
 }
+/* ── Navbar buttons ── */
+.pf-nav-links button {
+  background: transparent;
+  border: none;
+  color: #cbd5e1;
+  margin-left: 15px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.pf-nav-links button:hover {
+  color: #38bdf8;
+}
+
+/* ── Hero layout helpers ── */
+.pf-hero-left {
+  flex: 1;
+}
+
+.pf-hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ── Badge ── */
+.pf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(56, 189, 248, 0.12);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: #7dd3fc;
+  margin-bottom: 15px;
+}
+
+.pf-badge-dot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+}
+
+/* ── Stats ── */
+.pf-stats {
+  display: flex;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.pf-stat {
+  text-align: center;
+}
+
+.pf-stat-num {
+  font-size: 20px;
+  font-weight: 700;
+  color: #38bdf8;
+  display: block;
+}
+
+.pf-stat-label {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* ── Section header ── */
+.pf-section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.pf-section-label {
+  font-size: 14px;
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.pf-section-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+}
+
+/* ── Project header ── */
+.pf-proj-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.pf-proj-icon {
+  font-size: 22px;
+}
+
+.pf-proj-title {
+  font-weight: 700;
+}
+
+.pf-proj-tech {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.pf-proj-link {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+/* ── Tags ── */
+.pf-proj-tags {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pf-tag {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  color: #cbd5e1;
+}
+
+/* ── Education ── */
+.pf-edu {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.pf-edu-icon {
+  font-size: 26px;
+}
+
+/* ── Avatar fallback ── */
+.pf-avatar-fallback {
+  display: none;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+/* ── Responsive fix for stats ── */
+@media (max-width: 768px) {
+  .pf-stats {
+    justify-content: center;
+  }
+}
