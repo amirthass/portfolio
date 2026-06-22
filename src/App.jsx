@@ -1,193 +1,294 @@
 import "./App.css";
 
+const skills = {
+  core: ["JavaScript", "React.js", "Node.js", "MongoDB", "Java"],
+  supporting: ["HTML", "CSS", "Express.js", "Git", "GitHub"],
+};
+
+const projects = [
+  {
+    icon: "🚗",
+    title: "Toll Management System",
+    tech: "Database Management System",
+    desc: "A DBMS-based toll management system for vehicle tracking and automated toll collection. Designed optimized MySQL schemas for vehicles, toll plazas, and transactions — enabling efficient report generation and data management.",
+    tags: ["MySQL", "DBMS", "SQL Queries", "Database Design"],
+    github: "https://github.com/amirthass",
+  },
+  {
+    icon: "🌐",
+    title: "Disaster Mesh",
+    tech: "Emergency Communication System",
+    desc: "A mesh networking solution enabling peer-to-peer communication during network outages caused by natural disasters — no centralized infrastructure required. Ensures reliable message delivery in low-connectivity emergency environments.",
+    tags: ["Mesh Networking", "P2P", "Emergency Tech"],
+    github: "https://github.com/amirthass",
+  },
+];
+
+const profiles = [
+  {
+    emoji: "🐙",
+    label: "GitHub",
+    sub: "amirthass",
+    href: "https://github.com/amirthass",
+  },
+  {
+    emoji: "💻",
+    label: "LeetCode",
+    sub: "AmirthaSS",
+    href: "https://leetcode.com/u/AmirthaSS/",
+  },
+  {
+    emoji: "🔗",
+    label: "LinkedIn",
+    sub: "amirtha-sathies",
+    href: "https://www.linkedin.com/in/amirtha-sathies-818199329/",
+  },
+];
+
 function App() {
+  const scrollTo = (id) =>
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+
   return (
-    <div className="container">
-<header className="hero">
-  <div className="hero-left">
-    <p className="greeting">Hi, I'm</p>
+    <div className="pf-root">
+      {/* Background orbs */}
+      <div className="orb orb1" />
+      <div className="orb orb2" />
+      <div className="orb orb3" />
 
-    <h1>Amirtha S S</h1>
-    <br></br>
-    <h2>Aspiring Full Stack Developer</h2>
+      <div className="pf-wrap">
+        {/* Navbar */}
+        <nav className="pf-nav">
+          <span className="pf-logo">Amirtha S S</span>
+          <div className="pf-nav-links">
+            <button onClick={() => scrollTo("about")}>About</button>
+            <button onClick={() => scrollTo("projects")}>Projects</button>
+            <button onClick={() => scrollTo("contact")}>Contact</button>
+          </div>
+        </nav>
 
-    <p className="hero-text">
-      Passionate about building modern web applications
-      using the MERN Stack and solving challenging
-      coding problems through Data Structures and Algorithms.
-    </p>
+        {/* Hero */}
+        <header className="pf-hero">
+          <div className="pf-hero-left">
+            <div className="pf-badge">
+              <span className="pf-badge-dot" />
+              Open to opportunities
+            </div>
 
-    <div className="hero-buttons">
-      <a
-        href="https://github.com/amirthass"
-        target="_blank"
-        rel="noreferrer"
-        className="btn"
-      >
-        GitHub
-      </a>
+            <h1 className="pf-name">
+              Hi, I'm<br />
+              <span className="pf-name-gradient">Amirtha S S</span>
+            </h1>
 
-      <a
-        href="https://www.linkedin.com/in/amirtha-sathies-818199329/"
-        target="_blank"
-        rel="noreferrer"
-        className="btn"
-      >
-        LinkedIn
-      </a>
+            <p className="pf-role">
+              Aspiring <em>Full Stack Developer</em>
+            </p>
 
-      <a
-        href="https://leetcode.com/u/AmirthaSS/"
-        target="_blank"
-        rel="noreferrer"
-        className="btn"
-      >
-        LeetCode
-      </a>
-    </div>
-  </div>
+            <p className="pf-bio">
+              Passionate about building modern web applications using the MERN
+              Stack and solving challenging coding problems through Data
+              Structures and Algorithms.
+            </p>
 
-  <div className="hero-right">
-    <img
-      src="/amir.png"
-      alt="Amirtha"
-      className="profile-image"
-    />
-  </div>
-</header>
+            <div className="pf-btns">
+              <a
+                href="https://github.com/amirthass"
+                target="_blank"
+                rel="noreferrer"
+                className="pf-btn primary"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/amirtha-sathies-818199329/"
+                target="_blank"
+                rel="noreferrer"
+                className="pf-btn ghost"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://leetcode.com/u/AmirthaSS/"
+                target="_blank"
+                rel="noreferrer"
+                className="pf-btn ghost"
+              >
+                LeetCode
+              </a>
+            </div>
 
-      <section className="card">
-        <h2>About Me</h2>
-        <p>
-          I am a Computer Science and Design student at Kongu Engineering
-          College. I enjoy building web applications, learning new technologies,
-          and solving coding challenges. Currently, I am strengthening my
-          skills in MERN Stack development and Data Structures & Algorithms.
-        </p>
-      </section>
+            <div className="pf-stats">
+              <div className="pf-stat">
+                <span className="pf-stat-num">8.19</span>
+                <span className="pf-stat-label">CGPA</span>
+              </div>
+              <div className="pf-stat">
+                <span className="pf-stat-num">2+</span>
+                <span className="pf-stat-label">Projects</span>
+              </div>
+              <div className="pf-stat">
+                <span className="pf-stat-num">10+</span>
+                <span className="pf-stat-label">Skills</span>
+              </div>
+            </div>
+          </div>
 
-      <section className="card">
-        <h2>Skills</h2>
-        <div className="skills">
-          <span>Java</span>
-          <span>JavaScript</span>
-          <span>HTML</span>
-          <span>CSS</span>
-          <span>React.js</span>
-          <span>Node.js</span>
-          <span>Express.js</span>
-          <span>MongoDB</span>
-          <span>Git</span>
-          <span>GitHub</span>
-        </div>
-      </section>
-<section className="card">
-  <h2>💼 Projects</h2>
+          <div className="pf-hero-right">
+            <div className="pf-avatar-wrap">
+              <div className="pf-avatar-glow" />
+              <div className="pf-avatar-inner">
+                <img
+                  src="/amir.png"
+                  alt="Amirtha S S"
+                  className="pf-avatar-img"
+                  onError={(e) => {
+                    e.target.style.display = "none";
+                    e.target.nextSibling.style.display = "flex";
+                  }}
+                />
+                <div className="pf-avatar-fallback">AS</div>
+              </div>
+            </div>
+          </div>
+        </header>
 
-  <div className="project">
-    <h3>🚗 Toll Management System</h3>
+        {/* About */}
+        <section className="pf-section" id="about">
+          <div className="pf-section-header">
+            <span className="pf-section-label">About me</span>
+            <div className="pf-section-line" />
+          </div>
+          <div className="glass">
+            <p className="pf-about-text">
+              I'm a Computer Science and Design student at Kongu Engineering
+              College. I enjoy building web applications, learning new
+              technologies, and solving real-world coding challenges. Currently
+              strengthening my skills in MERN Stack development and Data
+              Structures & Algorithms — always looking to build things that
+              actually matter.
+            </p>
+          </div>
+        </section>
 
-    <p>
-      Built a DBMS-based toll management system for vehicle tracking and
-      automated toll collection.
-    </p>
+        {/* Skills */}
+        <section className="pf-section">
+          <div className="pf-section-header">
+            <span className="pf-section-label">Skills</span>
+            <div className="pf-section-line" />
+          </div>
+          <div className="pf-skills-grid">
+            {skills.core.map((s) => (
+              <span key={s} className="pf-skill core">
+                {s}
+              </span>
+            ))}
+            {skills.supporting.map((s) => (
+              <span key={s} className="pf-skill">
+                {s}
+              </span>
+            ))}
+          </div>
+        </section>
 
-    <ul>
-      <li>
-        Designed MySQL tables for vehicles, toll plazas, and transactions
-        with optimized database relationships.
-      </li>
+        {/* Projects */}
+        <section className="pf-section" id="projects">
+          <div className="pf-section-header">
+            <span className="pf-section-label">Projects</span>
+            <div className="pf-section-line" />
+          </div>
+          {projects.map((p) => (
+            <div className="glass pf-proj" key={p.title}>
+              <div className="pf-proj-header">
+                <div className="pf-proj-icon">{p.icon}</div>
+                <div>
+                  <div className="pf-proj-title">{p.title}</div>
+                  <div className="pf-proj-tech">{p.tech}</div>
+                </div>
+                <a
+                  href={p.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="pf-proj-link"
+                >
+                  View →
+                </a>
+              </div>
+              <p className="pf-proj-desc">{p.desc}</p>
+              <div className="pf-proj-tags">
+                {p.tags.map((t) => (
+                  <span key={t} className="pf-tag">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </section>
 
-      <li>
-        Generated toll collection reports and maintained transaction
-        records using SQL queries.
-      </li>
+        {/* Education */}
+        <section className="pf-section">
+          <div className="pf-section-header">
+            <span className="pf-section-label">Education</span>
+            <div className="pf-section-line" />
+          </div>
+          <div className="glass pf-edu">
+            <div className="pf-edu-icon">🎓</div>
+            <div>
+              <div className="pf-edu-degree">B.E Computer Science and Design</div>
+              <div className="pf-edu-college">Kongu Engineering College</div>
+              <div className="pf-edu-gpa">★ CGPA: 8.19</div>
+            </div>
+          </div>
+        </section>
 
-      <li>
-        Improved data management and reporting efficiency through
-        structured database design.
-      </li>
-    </ul>
-  </div>
+        {/* Coding Profiles */}
+        <section className="pf-section">
+          <div className="pf-section-header">
+            <span className="pf-section-label">Coding profiles</span>
+            <div className="pf-section-line" />
+          </div>
+          <div className="pf-profiles">
+            {profiles.map((p) => (
+              <a
+                key={p.label}
+                href={p.href}
+                target="_blank"
+                rel="noreferrer"
+                className="pf-profile-link"
+              >
+                <span className="pf-profile-emoji">{p.emoji}</span>
+                <span className="pf-profile-name">{p.label}</span>
+                <span className="pf-profile-sub">{p.sub}</span>
+              </a>
+            ))}
+          </div>
+        </section>
 
-  <div className="project">
-    <h3>🌐 Disaster Mesh – Emergency Communication System</h3>
+        {/* Contact */}
+        <section className="pf-section" id="contact">
+          <div className="pf-section-header">
+            <span className="pf-section-label">Contact</span>
+            <div className="pf-section-line" />
+          </div>
+          <div className="glass pf-contact">
+            <div className="pf-contact-row">
+              <div className="pf-contact-icon">✉️</div>
+              <a href="mailto:amirthass.24csd@kongu.edu">
+                amirthass.24csd@kongu.edu
+              </a>
+            </div>
+            <div className="pf-contact-row">
+              <div className="pf-contact-icon">📍</div>
+              <span>Tamil Nadu, India</span>
+            </div>
+          </div>
+        </section>
 
-    <p>
-      Built a mesh networking solution for communication during network
-      outages caused by natural disasters.
-    </p>
-
-    <ul>
-      <li>
-        Implemented peer-to-peer message routing between nearby devices
-        without relying on centralized infrastructure.
-      </li>
-
-      <li>
-        Enabled reliable communication in low-connectivity environments.
-      </li>
-
-      <li>
-        Enhanced emergency response by ensuring message delivery during
-        critical situations.
-      </li>
-    </ul>
-  </div>
-</section>
-
-      <section className="card">
-        <h2>Education</h2>
-        <p>B.E Computer Science and Design</p>
-        <p>Kongu Engineering College</p>
-        <p>CGPA : 8.19  </p>
-      </section>
-
-      <section className="card">
-        <h2>Coding Profiles</h2>
-
-        <ul>
-          <li>
-            <a
-              href="https://github.com/amirthass"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="https://leetcode.com/u/AmirthaSS/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              LeetCode
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="https://www.linkedin.com/in/amirtha-sathies-818199329/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              LinkedIn
-            </a>
-          </li>
-        </ul>
-      </section>
-
-      <section className="card">
-        <h2>Contact</h2>
-        <p>Email: amirthass.24csd@kongu.edu</p>
-        <p>Location: Tamil Nadu, India</p>
-      </section>
-
-      <footer>
-        <p>© 2026 Amirtha S S. All Rights Reserved.</p>
-      </footer>
+        <footer className="pf-footer">
+          Built with passion by{" "}
+          <span className="pf-footer-name">Amirtha S S</span> · 2026
+        </footer>
+      </div>
     </div>
   );
 }
