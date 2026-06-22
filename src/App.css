@@ -16,17 +16,25 @@ body {
   overflow-x: hidden;
 }
 
-/* ── Root wrapper ── */
+/* ── Wrapper ── */
 .pf-root {
   position: relative;
   overflow: hidden;
+}
+
+.pf-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem 5rem;
+  position: relative;
+  z-index: 1;
 }
 
 /* ── Background Orbs ── */
 .orb {
   position: fixed;
   border-radius: 50%;
-  filter: blur(90px);
+  filter: blur(100px);
   pointer-events: none;
   z-index: 0;
 }
@@ -34,7 +42,7 @@ body {
 .orb1 {
   width: 600px;
   height: 600px;
-  background: rgba(56, 189, 248, 0.09);
+  background: rgba(56, 189, 248, 0.10);
   top: -150px;
   right: -150px;
 }
@@ -53,15 +61,6 @@ body {
   background: rgba(34, 211, 238, 0.06);
   bottom: 10vh;
   right: 5vw;
-}
-
-/* ── Layout ── */
-.pf-wrap {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 1.5rem 5rem;
-  position: relative;
-  z-index: 1;
 }
 
 /* ── Navbar ── */
@@ -111,12 +110,15 @@ body {
 .pf-role {
   font-size: 20px;
   color: #94a3b8;
+  margin-top: 10px;
 }
 
 .pf-bio {
   font-size: 15px;
   line-height: 1.8;
   color: #cbd5e1;
+  margin-top: 15px;
+  max-width: 500px;
 }
 
 /* ── Buttons ── */
@@ -126,7 +128,9 @@ body {
   border-radius: 10px;
   font-weight: 600;
   text-decoration: none;
-  transition: 0.2s;
+  transition: 0.2s ease;
+  margin-right: 10px;
+  margin-top: 20px;
 }
 
 .pf-btn.primary {
@@ -145,9 +149,10 @@ body {
 
 /* ── Avatar ── */
 .pf-avatar-wrap {
-  width: 222px;
-  height: 222px;
+  width: 220px;
+  height: 220px;
   position: relative;
+  flex-shrink: 0;
 }
 
 .pf-avatar-glow {
@@ -163,6 +168,7 @@ body {
   inset: 5px;
   border-radius: 50%;
   overflow: hidden;
+  background: #060b14;
 }
 
 .pf-avatar-img {
@@ -177,11 +183,18 @@ body {
   margin: 4rem 0;
 }
 
+/* Glass card */
 .glass {
   background: rgba(255,255,255,0.04);
   border-radius: 18px;
   border: 1px solid rgba(255,255,255,0.1);
   padding: 1.5rem;
+  transition: 0.3s;
+}
+
+.glass:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.3);
 }
 
 /* ── Skills ── */
@@ -197,6 +210,13 @@ body {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.12);
   font-size: 13px;
+  transition: 0.2s;
+}
+
+.pf-skill:hover {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateY(-2px);
 }
 
 /* ── Projects ── */
@@ -205,6 +225,12 @@ body {
   margin-bottom: 1rem;
   border-radius: 16px;
   background: rgba(255,255,255,0.04);
+  transition: 0.3s;
+}
+
+.pf-proj:hover {
+  transform: translateY(-3px);
+  border: 1px solid rgba(56, 189, 248, 0.25);
 }
 
 /* ── Profiles ── */
@@ -220,12 +246,21 @@ body {
   border-radius: 16px;
   background: rgba(255,255,255,0.04);
   text-decoration: none;
+  transition: 0.3s;
+  color: #cbd5e1;
+}
+
+.pf-profile-link:hover {
+  transform: translateY(-4px);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #7dd3fc;
 }
 
 /* ── Contact ── */
 .pf-contact-row {
   padding: 1rem 0;
   border-bottom: 1px solid rgba(255,255,255,0.06);
+  color: #cbd5e1;
 }
 
 /* ── Footer ── */
@@ -239,4 +274,26 @@ body {
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .pf-hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .pf-name {
+    font-size: 36px;
+  }
+
+  .pf-avatar-wrap {
+    width: 170px;
+    height: 170px;
+  }
+
+  .pf-profiles {
+    grid-template-columns: 1fr;
+  }
 }
